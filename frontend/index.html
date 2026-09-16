@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="fr" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CYBERCHECK — Plateforme de Cybersécurité</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        cyber: { 900: '#0b0f19', 800: '#111827', 700: '#1f2937', 600: '#374151', accent: '#06b6d4', neon: '#22d3ee' }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-cyber-900 text-gray-100 min-h-screen font-sans antialiased">
+    <!-- Header -->
+    <header class="border-b border-cyber-700 bg-cyber-800/50 backdrop-blur sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
+            <div class="flex items-center space-x-3">
+                <div class="bg-cyber-accent text-cyber-900 font-black px-3 py-1.5 rounded-lg text-xl tracking-wider">CC</div>
+                <h1 class="text-xl font-bold tracking-tight text-white">CYBER<span class="text-cyber-neon">CHECK</span></h1>
+            </div>
+            <div class="text-xs text-gray-400 font-mono">V1.0 • Sécurité & Audit</div>
+        </div>
+    </header>
+
+    <!-- Main Container -->
+    <main class="max-w-7xl mx-auto px-4 py-8 grid grid-cols-1 md:grid-cols-3 gap-8">
+        
+        <!-- Module 1: Password Analysis -->
+        <section class="bg-cyber-800 rounded-xl p-6 border border-cyber-700 shadow-xl flex flex-col justify-between">
+            <div>
+                <div class="flex items-center space-x-3 mb-4">
+                    <span class="p-2 bg-cyber-700 rounded-lg text-cyber-neon">🔑</span>
+                    <h2 class="text-lg font-semibold">Testeur de Mot de Passe</h2>
+                </div>
+                <p class="text-sm text-gray-400 mb-4">Évaluez la robustesse de votre mot de passe et vérifiez s'il apparaît dans des fuites publiques.</p>
+                
+                <div class="space-y-3">
+                    <input type="password" id="pwdInput" placeholder="Entrez un mot de passe..." 
+                        class="w-full bg-cyber-900 border border-cyber-600 rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:border-cyber-accent">
+                    <button onclick="checkPassword()" class="w-full bg-cyan-600 hover:bg-cyan-500 text-cyber-900 font-bold py-2.5 rounded-lg transition text-sm">
+                        Analyser le mot de passe
+                    </button>
+                </div>
+            </div>
+            <div id="pwdResult" class="mt-6 hidden p-4 rounded-lg bg-cyber-900 border border-cyber-700 text-sm space-y-2"></div>
+        </section>
+
+        <!-- Module 2: Email Leak Check -->
+        <section class="bg-cyber-800 rounded-xl p-6 border border-cyber-700 shadow-xl flex flex-col justify-between">
+            <div>
+                <div class="flex items-center space-x-3 mb-4">
+                    <span class="p-2 bg-cyber-700 rounded-lg text-cyber-neon">📧</span>
+                    <h2 class="text-lg font-semibold">Fuites d'E-mails</h2>
+                </div>
+                <p class="text-sm text-gray-400 mb-4">Vérifiez si votre adresse e-mail a été compromise dans des violations de données connues.</p>
+                
+                <div class="space-y-3">
+                    <input type="email" id="emailInput" placeholder="votre@email.com" 
+                        class="w-full bg-cyber-900 border border-cyber-600 rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:border-cyber-accent">
+                    <button onclick="checkEmail()" class="w-full bg-cyan-600 hover:bg-cyan-500 text-cyber-900 font-bold py-2.5 rounded-lg transition text-sm">
+                        Vérifier l'e-mail
+                    </button>
+                </div>
+            </div>
+            <div id="emailResult" class="mt-6 hidden p-4 rounded-lg bg-cyber-900 border border-cyber-700 text-sm space-y-2"></div>
+        </section>
+
+        <!-- Module 3: IP Reputation -->
+        <section class="bg-cyber-800 rounded-xl p-6 border border-cyber-700 shadow-xl flex flex-col justify-between">
+            <div>
+                <div class="flex items-center space-x-3 mb-4">
+                    <span class="p-2 bg-cyber-700 rounded-lg text-cyber-neon">🌍</span>
+                    <h2 class="text-lg font-semibold">Réputation IP</h2>
+                </div>
+                <p class="text-sm text-gray-400 mb-4">Analysez la localisation et les informations de réputation d'une adresse IP ou domaine.</p>
+                
+                <div class="space-y-3">
+                    <input type="text" id="ipInput" placeholder="ex: 8.8.8.8" 
+                        class="w-full bg-cyber-900 border border-cyber-600 rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:border-cyber-accent">
+                    <button onclick="checkIP()" class="w-full bg-cyan-600 hover:bg-cyan-500 text-cyber-900 font-bold py-2.5 rounded-lg transition text-sm">
+                        Analyser l'IP
+                    </button>
+                </div>
+            </div>
+            <div id="ipResult" class="mt-6 hidden p-4 rounded-lg bg-cyber-900 border border-cyber-700 text-sm space-y-2"></div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="text-center py-6 text-xs text-gray-500 border-t border-cyber-700 mt-12">
+        CYBERCHECK v1.0 • Outil de cybersécurité open source
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
