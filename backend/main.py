@@ -2,8 +2,8 @@ from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel
-from security import analyze_password_strength
-from scanner import check_email_leak, check_ip_reputation
+from backend.security import analyze_password_strength
+from backend.scanner import check_email_leak, check_ip_reputation
 import os
 
 app = FastAPI(title="CYBERCHECK API", version="1.0")
